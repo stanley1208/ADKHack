@@ -1,0 +1,45 @@
+🏆 FINAL WINNING DEMO COMMANDS
+=============================
+
+🎯 LOCAL SYSTEM WITH ADK (Use This for Main Demo):
+fetch('http://localhost:8080/analyze', {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify({
+    sensor_data: [
+      {location: "Server Room Emergency", temperature: 87, smoke_level: 95},
+      {location: "Chemical Storage Critical", temperature: 52, smoke_level: 78},
+      {location: "Safe Office Zone", temperature: 23, smoke_level: 3}
+    ]})
+}).then(r=>r.json()).then(data => {
+  console.log('🤖 LOCAL ADK + AI ANALYSIS:');
+  console.log('Overall Risk:', data.analysis_result.overall_risk_level);
+  console.log('AI Powered:', data.analysis_result.ai_powered);
+  console.log('Full Result:', data);
+  return data;
+})
+
+☁️ CLOUD SYSTEM BACKUP (Production Demo):
+fetch('https://disaster-response-system-838920435800.us-central1.run.app/analyze', {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify({
+    sensor_data: [
+      {location: "Production Emergency Demo", temperature: 87, smoke_level: 95}
+    ]})
+}).then(r=>r.json()).then(data => {
+  console.log('☁️ CLOUD PRODUCTION ANALYSIS:');
+  console.log('Risk Level:', data.analysis_result.overall_risk_level);
+  console.log(data);
+  return data;
+})
+
+🎪 WINNING DEMO NARRATIVE:
+"Notice how both systems provide intelligent analysis, but the local version shows the full ADK architecture while the cloud version demonstrates production deployment optimization."
+
+🎯 KEY PHRASES TO USE:
+- "Sophisticated dual-architecture approach"
+- "Development with full ADK integration"  
+- "Production-optimized cloud deployment"
+- "Enterprise-grade deployment strategy"
+- "Real Google ADK BaseAgent coordination" 
